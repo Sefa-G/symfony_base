@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ parent() }} | Sauces {% endblock %}
+{% block title %} {{ parent() }} | Ajout Oignon {% endblock %}
 
 {% block body %}
 <style>
@@ -9,15 +9,13 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Liste des sauces</h1>
+    <h1>Ajouter un oignon</h1>
 
-    {% for sauce in sauces %}
-        <p>{{ sauce.type }}</p>
-    {% endfor %}
+    {{ form(form) }}
+
 </div>
 
 <div>
-    <a href="{{ path('create_sauce') }}">Ajouter</a><br>
     <a href="{{ path('app_home') }}">Accueil</a>
 </div>
 
