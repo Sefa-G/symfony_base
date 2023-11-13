@@ -14,9 +14,9 @@ class ImageFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $imageSources = [
-            '/img/api.png',
-            '/img/trello.png',
-            '/img/smart.jpg'
+            'api.png',
+            'trello.png',
+            'smart.jpg'
         ];
  
         foreach ($imageSources as $key => $imageSource) {

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ parent() }} | Images {% endblock %}
+{% block title %} {{ parent() }} | Ajout burger {% endblock %}
 
 {% block body %}
 <style>
@@ -9,11 +9,10 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Liste des images</h1>
+    <h1>Ajouter un burger</h1>
 
-    {% for image in images %}
-        <img src="{{asset('/img/') ~ image.source }}" width="100px">
-    {% endfor %}
+    {{ form(form) }}
+
 </div>
 
 <div>

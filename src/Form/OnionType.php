@@ -17,7 +17,7 @@ class OnionType extends AbstractType
             ->add('type' , TextType::class , [
                 'label' => "Nom de l'oignon",
             ])
-            ->add('save', SubmitType::class, [
+            ->add('Ajouter', SubmitType::class, [
                 'attr' => ['class' => 'save'],
             ])
         ;

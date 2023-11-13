@@ -17,7 +17,7 @@ class BreadType extends AbstractType
             ->add('type' , TextType::class , [
                 'label' => "Nom du pain",
             ])
-            ->add('save', SubmitType::class, [
+            ->add('Ajouter', SubmitType::class, [
                 'attr' => ['class' => 'save'],
             ])
         ;

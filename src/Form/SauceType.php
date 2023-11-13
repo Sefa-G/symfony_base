@@ -17,7 +17,7 @@ class SauceType extends AbstractType
             ->add('type' , TextType::class , [
                 'label' => "Nom de la sauce",
             ])
-            ->add('save', SubmitType::class, [
+            ->add('Ajouter', SubmitType::class, [
                 'attr' => ['class' => 'save'],
             ])
         ;
