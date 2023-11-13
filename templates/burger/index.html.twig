@@ -10,6 +10,10 @@
 
 <div class="example-wrapper">
     <h1>Liste des burgers</h1>
+
+    {% for burger in burgers %}
+        <p>{{ burger.name }} | {{ burger.price }} €</p>
+    {% endfor %}
 </div>
 
 <div>

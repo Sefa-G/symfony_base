@@ -9,7 +9,7 @@ use Doctrine\Persistence\ObjectManager;
 class SauceFixtures extends Fixture
 {
 
-    private const SAUCE_REFERENCE = 'Sauce';
+    public const SAUCE_REFERENCE = 'Sauce';
 
     public function load(ObjectManager $manager): void
     {
@@ -26,7 +26,7 @@ class SauceFixtures extends Fixture
             $sauce = new Sauce();
             $sauce->setType($nomSauce);
             $manager->persist($sauce);
-            // $this->addReference(self::SAUCE_REFERENCE . '_' . $key, $sauce);
+            $this->addReference(self::SAUCE_REFERENCE . '_' . $key, $sauce);
         }
 
         $manager->flush();

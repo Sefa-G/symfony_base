@@ -11,6 +11,9 @@
 <div class="example-wrapper">
     <h1>Liste des commentaires</h1>
 
+    {% for review in reviews %}
+        <p>{{ review.text }}</p>
+    {% endfor %}
 
 </div>
 

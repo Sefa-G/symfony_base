@@ -9,7 +9,7 @@ use Doctrine\Persistence\ObjectManager;
 class BreadFixtures extends Fixture
 {
 
-    private const BREAD_REFERENCE = 'Bread';
+    public const BREAD_REFERENCE = 'Bread';
 
     public function load(ObjectManager $manager): void
     {
@@ -23,7 +23,7 @@ class BreadFixtures extends Fixture
             $bread = new Bread();
             $bread->setType($breadName);
             $manager->persist($bread);
-            $this->addReference(self::BREAD_REFERENCE . '_' . $key, $bread);
+            $this->setReference(self::BREAD_REFERENCE . '_' . $key, $bread);
         }
 
         $manager->flush();

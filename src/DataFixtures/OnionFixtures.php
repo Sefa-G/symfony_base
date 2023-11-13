@@ -9,7 +9,7 @@ use Doctrine\Persistence\ObjectManager;
 class OnionFixtures extends Fixture
 {
 
-    private const ONION_REFERENCE = 'Onion';
+    public const ONION_REFERENCE = 'Onion';
 
     public function load(ObjectManager $manager): void
     {

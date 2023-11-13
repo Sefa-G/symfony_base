@@ -34,7 +34,7 @@ class SauceController extends AbstractController
             $em->persist($sauce);
             $em->flush();
     
-            $this->addFlash('success', 'Oignon créé!');
+            $this->addFlash('success', 'Sauce créé!');
             return $this->redirectToRoute('app_sauce');
         }
     
