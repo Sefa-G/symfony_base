@@ -51,9 +51,6 @@ class BurgerController extends AbstractController
             $img->setSource($fichier);
             $burger->setImage($img);
 
-
-
-
             $em->persist($burger);
             $em->flush();
     

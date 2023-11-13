@@ -12,7 +12,7 @@
     <h1>Liste des burgers</h1>
 
     {% for burger in burgers %}
-        <p>{{ burger.name }} | {{ burger.price }} €</p>
+        <p>{{ burger.name }} | {{ burger.price }} €</p><a href="{{ path("create_review" , {'id': burger.id }) }}">Ajouter un commentaire</a>
     {% endfor %}
 </div>
 
