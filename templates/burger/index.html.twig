@@ -9,16 +9,31 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Liste des burgers</h1>
+    <h1 style="text-align:center">Liste des burgers</h1>
 
-    {% for burger in burgers %}
-        <p>{{ burger.name }} | {{ burger.price }} €</p><a href="{{ path("create_review" , {'id': burger.id }) }}">Ajouter un commentaire</a>
-    {% endfor %}
-</div>
+    <div style="display:flex ; justify-content:center ; align-items:center">
+        <a href="{{ path('create_burger') }}" style="text-decoration:none"><button class="btn btn-success">Ajouter</button></a><br>
+        <a href="{{ path('app_home') }}" style="text-decoration:none ;   margin-left:20px"><button class="btn btn-danger">Accueil</button></a><br>
+    </div>
 
-<div>
-    <a href="{{ path('create_burger') }}">Ajouter</a><br>
-    <a href="{{ path('app_home') }}">Accueil</a>
+    <div class="container">
+        <div class="row">
+
+            {% for burger in burgers %}
+                <div class="col-sm-3" style="margin-top:20px">
+                    <div class="card" style="width: 12rem; text-align:center">
+                        <img class="card-img-top" src="{{ asset("/img/" ~ burger.image.source) }}" alt="image">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size:20px">{{ burger.name }}</h5>
+                            <p class="card-text" style="font-weight:bold">{{ burger.price }} €</p>
+                            <a href="{{ path('show_burger' , {'id': burger.id})  }}" class="btn btn-primary">Détail</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
 </div>
 
 {% endblock %}

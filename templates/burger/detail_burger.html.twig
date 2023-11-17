@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} | Ajout burger {% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper" style="text-align:center">
+    <h1 style="font-weight:bolder">Détail du burger</h1>
+
+    <img src="{{ asset('/img/') ~ burger.image.source }}" width="100px">
+
+    <p><b>Nom du burger :</b> {{ burger.name }}</p>
+    <p><b>Prix du burger :</b> {{ burger.price }} €</p>
+    <p><b>Pain du burger :</b> {{ burger.bread.type }}</p>
+
+<div style="display:flex ; justify-content:center ; align-items:center">
+    <div style="border:2px solid black ; margin-right:40px">
+        <p><b>Oignons :</b></p>
+        {% for onion in onions %}
+            <p>{{ onion.type }}</p> 
+        {% endfor %}
+    </div>
+    <div style="border:2px solid black">
+        <p><b>Sauces :</b></p>
+        {% for sauce in sauces %}
+            <p>{{ sauce.type }}</p> 
+        {% endfor %}
+    </div>
+</div>
+
+    <p><b>Commentaires :</b></p>
+    {% for review in reviews %}
+        <p>{{ review.text }}</p>
+    {% endfor %}
+
+</div>
+
+<div>
+    <a href="{{ path('app_burger') }}">Accueil</a><br>
+    <a href="{{ path("create_review" , {'id': burger.id}) }}">Ajouter un commentaire</a>
+</div>
+
+{% endblock %}

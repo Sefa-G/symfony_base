@@ -40,7 +40,7 @@ class ReviewController extends AbstractController
             $em->flush();
     
             $this->addFlash('success', 'Commentaire créé!');
-            return $this->redirectToRoute('app_burger');
+            return $this->redirectToRoute('show_burger' , ['id' => $id]);
         }
     
         return $this->render('review/add_review.html.twig', [

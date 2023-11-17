@@ -6,6 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\BurgerRepository;
+use App\Repository\ReviewRepository;
+use App\Repository\OnionRepository;
+use App\Repository\SauceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Burger;
@@ -61,6 +64,22 @@ class BurgerController extends AbstractController
         return $this->render('burger/add_burger.html.twig', [
             'burger' => $burger,
             'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/burger_list/{id}', name: 'show_burger', methods: ['GET'])]
+    public function show(Request $request, BurgerRepository $burgerRepository, ReviewRepository $reviewRepository, OnionRepository $onionRepository, SauceRepository $sauceRepository, $id): Response
+    {
+        $burger = $burgerRepository->find($id);
+        $reviews = $reviewRepository->findBy(array('burger' => $id));
+        $onions = $onionRepository->findOnionsByBurger($burger);
+        $sauces = $sauceRepository->findSaucesByBurger($burger);
+
+        return $this->render('burger/detail_burger.html.twig', [
+            'burger' => $burger,
+            'reviews' => $reviews,
+            'onions' => $onions,
+            'sauces' => $sauces,
         ]);
     }
 }

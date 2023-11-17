@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Sauce;
+use App\Entity\Burger;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -19,6 +20,15 @@ class SauceRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Sauce::class);
+    }
+
+    public function findSaucesByBurger(Burger $burger)
+    {
+        $qb = $this->createQueryBuilder("p")
+            ->where(':burger MEMBER OF p.burgers')
+            ->setParameters(array('burger' => $burger))
+        ;
+        return $qb->getQuery()->getResult();
     }
 
 //    /**
